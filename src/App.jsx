@@ -71,7 +71,7 @@ function Data() {
 }
 
 function MonthYear() {
-  const [date, setDate] = useState({month: 4, year: 2022 });
+  const [date, setDate] = useState({month: 4, year: 2021 });
   
   
   function yearChange(newYear) {
@@ -99,7 +99,7 @@ function MonthYear() {
               selectedMonth={date.month}
               selectedYear={date.year}
               minYear={2000}
-              maxYear={2022}
+              maxYear={2021}
               onChangeYear = {yearChange}
               onChangeMonth = {monthChange}
             />
@@ -202,6 +202,7 @@ function WaterDisplay(props) {
   useAsyncFetch('query/postCDECData', dateObj, props.month, props.year, {}, thenFunc, catchFunc);
 
   function thenFunc (result) {
+    console.log("got back result")
     setChartData(result);
   }
 
